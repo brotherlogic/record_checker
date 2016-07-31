@@ -71,11 +71,6 @@
   <build>
     <extensions>
       <extension>
-        <groupId>org.apache.maven.wagon</groupId>
-        <artifactId>wagon-ssh-external</artifactId>
-        <version>1.0-beta-6</version>
-      </extension>
-      <extension>
 	<groupId>kr.motd.maven</groupId>
 	<artifactId>os-maven-plugin</artifactId>
 	<version>1.4.1.Final</version>
