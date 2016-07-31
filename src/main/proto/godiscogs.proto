@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+message Label {
+        // The name of the label
+        string name = 1;
+}
+
+message Folder {
+        //The id number of the folder
+        int32 id = 1;
+
+        //The name of the folder
+        string name = 2;
+}
+
+message Artist {
+        // The id number of the artist
+        int32 id = 1;
+
+        //The name of the artist
+        string name = 2;
+}
+
+message Image {
+        // The uri to the image
+        string uri = 1;
+
+        // The type of image
+        string type = 2;
+}
+
+message Release {
+	// The id number of the release
+	int32 id = 1;
+
+	// The title of the release
+	string title = 2;
+
+        // Artists associated with the release
+        repeated Artist artists = 3;
+
+        // The folder in which the record is stored
+        int32 folder_id = 4;
+
+        // Images associated with the release
+        repeated Image images = 5;
+
+        // The instance id of this release
+        int32 instance_id = 6;
+
+        // The labels connected to this release
+        repeated Label labels = 7;
+}

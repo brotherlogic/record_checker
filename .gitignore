@@ -1,0 +1,7 @@
+*~
+/target/
+.classpath
+.project
+.settings
+card.jar
+codestore/

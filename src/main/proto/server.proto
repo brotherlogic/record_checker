@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+import "godiscogs.proto";
+
+message ReleaseMetadata {
+	// The date the release was added
+	int64 date_added = 1;
+
+	// The date the release was last refreshed
+	int64 date_refreshed = 2;
+
+        //The path to the file on iTunes if available
+        string file_path = 3;
+}
+
+message Empty {}
+
+message FolderList {
+        repeated Folder folders = 1;
+}
+
+message ReleaseList {
+        repeated Release releases = 1;
+}
+
+message ReleaseMove {
+        Release release = 1;
+        int32 new_folder_id = 2;
+}
+
+message MetadataUpdate {
+        Release release = 1;
+        ReleaseMetadata update = 2;
+}
+
+service DiscogsService {
+        rpc GetCollection (Empty) returns (ReleaseList) {};
+
+        rpc GetReleasesInFolder (FolderList) returns (ReleaseList) {};
+
+        rpc MoveToFolder (ReleaseMove) returns (Empty) {};
+
+        rpc AddToFolder(ReleaseMove) returns (Empty) {};
+
+        rpc UpdateMetadata(MetadataUpdate) returns (ReleaseMetadata) {};
+
+        rpc GetMetadata(Release) returns (ReleaseMetadata) {};
+}
+
