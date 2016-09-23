@@ -101,7 +101,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>com.github.brotherlogic.recordchecker.RecordCheck</mainClass>
+              <mainClass>com.github.brotherlogic.recordchecker.Checker</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>
