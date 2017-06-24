@@ -63,7 +63,7 @@ public class CheckerModel {
 						cd = true;
 
 				System.out.println("HERE = " + rel.getTitle() + " => " + cd + " and " + rel.getFolderId() + " FROM "
-						+ rel.getFormatsList());
+						+ rel.getFormatsList() + " BUUUUT " + rel);
 				if ((rel.getFolderId() != 673768 && rel.getFolderId() != 812802) || cd)
 					return rel;
 			}

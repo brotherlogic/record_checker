@@ -1,6 +1,7 @@
 package com.github.brotherlogic.recordchecker;
 
 import java.io.File;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -51,10 +52,13 @@ public class Checker extends JavaServer {
 		}
 
 		// Print out all the missing records
-		for (String missing : model.getMissing()) {
+		List<String> blah = model.getMissing();
+		Collections.shuffle(blah);
+		for (String missing : blah) {
 			System.out.println("Missing = " + missing);
+			System.exit(1);
 		}
-		System.exit(1);
+
 	}
 
 	CheckerModel model;
@@ -70,6 +74,6 @@ public class Checker extends JavaServer {
 
 	public static void main(String[] args) {
 		final Checker checker = new Checker(new CheckerModel(new CheckerGRPCBridge()));
-		checker.Serve("10.0.1.17", 50055);
+		checker.Serve("192.168.86.64", 50055);
 	}
 }

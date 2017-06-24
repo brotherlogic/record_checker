@@ -32,7 +32,8 @@ public class CheckerGRPCBridge implements CheckerBridge {
 				.addFolders(Folder.newBuilder().setName("Jandek").build())
 				.addFolders(Folder.newBuilder().setName("ListeningPile").build())
 				.addFolders(Folder.newBuilder().setName("ListeningBox").build())
-				.addFolders(Folder.newBuilder().setName("Digital").build()).build();
+				.addFolders(Folder.newBuilder().setName("Digital").build())
+				.addFolders(Folder.newBuilder().setName("Outside").build()).build();
 		ReleaseList list = stub.getReleasesInFolder(fl);
 		return list.getReleasesList();
 	}
