@@ -26,21 +26,14 @@ public class CheckerGRPCBridge implements CheckerBridge {
 
 	@Override
 	public List<Release> getReleases() {
-		FolderList fl = FolderList.newBuilder().addFolders(Folder.newBuilder().setName("CDs").build())
-				.addFolders(Folder.newBuilder().setName("CD Boxsets").build())
-				.addFolders(Folder.newBuilder().setName("The Fall").build())
-				.addFolders(Folder.newBuilder().setName("Jandek").build())
-				.addFolders(Folder.newBuilder().setName("ListeningPile").build())
-				.addFolders(Folder.newBuilder().setName("ListeningBox").build())
-				.addFolders(Folder.newBuilder().setName("Digital").build())
-				.addFolders(Folder.newBuilder().setName("Outside").build()).build();
-		ReleaseList list = stub.getReleasesInFolder(fl);
+		System.out.println("MAKING THE CALL");
+		ReleaseList list = stub.getIncompleteReleases(Empty.getDefaultInstance());
 		return list.getReleasesList();
 	}
 
 	@Override
 	public List<Release> getPurchases() {
-		ReleaseList list = stub.getCollection(Empty.getDefaultInstance());
+		ReleaseList list =  stub.getIncompleteReleases(Empty.getDefaultInstance());
 		return list.getReleasesList();
 	}
 

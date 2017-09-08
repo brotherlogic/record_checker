@@ -29,7 +29,8 @@ public class Checker extends JavaServer {
 		model.connect(getHost("discogssyncer"), getPort("discogssyncer"));
 
 		Release r = model.getReleaseToCost();
-		while (r != null) {
+		while (r != null ) {
+			System.out.println("TRYING " + r.getId());
 			String answer = JOptionPane
 					.showInputDialog(r.getArtists(0).getName() + " - " + r.getTitle() + " [" + r.getFolderId() + "]");
 			model.setCost(r, Integer.parseInt(answer));
