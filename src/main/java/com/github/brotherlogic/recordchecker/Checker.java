@@ -29,7 +29,7 @@ public class Checker extends JavaServer {
 		model.connect(getHost("discogssyncer"), getPort("discogssyncer"));
 
 		Release r = model.getReleaseToCost();
-		while (r != null ) {
+		while (r != null) {
 			System.out.println("TRYING " + r.getId());
 			String answer = JOptionPane
 					.showInputDialog(r.getArtists(0).getName() + " - " + r.getTitle() + " [" + r.getFolderId() + "]");
@@ -75,6 +75,6 @@ public class Checker extends JavaServer {
 
 	public static void main(String[] args) {
 		final Checker checker = new Checker(new CheckerModel(new CheckerGRPCBridge()));
-		checker.Serve("192.168.86.64", 50055);
+		checker.Serve("192.168.86.26", 50055);
 	}
 }

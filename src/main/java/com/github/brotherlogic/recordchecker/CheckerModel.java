@@ -80,18 +80,19 @@ public class CheckerModel {
 		// 01/10/16
 		long startDate = 1475280000;
 		List<Release> releases = bridge.getPurchases();
-		
+
 		int count = 0;
 		for (Release rel : releases) {
 			ReleaseMetadata meta = bridge.getMetadata(rel);
-		
-			System.out.println("("+count+ ") HERE = " +rel.getTitle() + " and "+ meta.getDateAdded() + " also " + startDate);
-			if (rel.getId() > 0 &&  rel.getFolderId() != 0 && meta.getCost() == 0 && meta.getDateAdded() > startDate) {
+
+			System.out.println("(" + count + ") HERE (" + rel.getId() + ")= " + rel.getTitle() + " and "
+					+ meta.getDateAdded() + " also " + startDate);
+			if (rel.getId() > 0 && rel.getFolderId() != 0 && meta.getCost() == 0 && meta.getDateAdded() > startDate) {
 				return rel;
 			}
 			count++;
 		}
-		
+
 		System.out.println("FAILED");
 		System.exit(1);
 

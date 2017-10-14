@@ -5,11 +5,9 @@ import java.util.List;
 import discogsserver.DiscogsServiceGrpc;
 import discogsserver.DiscogsServiceGrpc.DiscogsServiceBlockingStub;
 import discogsserver.Server.Empty;
-import discogsserver.Server.FolderList;
 import discogsserver.Server.MetadataUpdate;
 import discogsserver.Server.ReleaseList;
 import discogsserver.Server.ReleaseMetadata;
-import godiscogs.Godiscogs.Folder;
 import godiscogs.Godiscogs.Release;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
@@ -28,12 +26,14 @@ public class CheckerGRPCBridge implements CheckerBridge {
 	public List<Release> getReleases() {
 		System.out.println("MAKING THE CALL");
 		ReleaseList list = stub.getIncompleteReleases(Empty.getDefaultInstance());
+
 		return list.getReleasesList();
 	}
 
 	@Override
 	public List<Release> getPurchases() {
-		ReleaseList list =  stub.getIncompleteReleases(Empty.getDefaultInstance());
+		ReleaseList list = stub.getIncompleteReleases(Empty.getDefaultInstance());
+		System.out.println("RETURN: " + list.getReleasesCount());
 		return list.getReleasesList();
 	}
 
